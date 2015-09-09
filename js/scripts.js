@@ -69,34 +69,45 @@ var encrypt = function(message) {
 
 var switch_a = 0;
 var switch_b = 2;
-var coordinates_encrypted = coordinates_message;
+var coordinates_encrypted = coordinates_message.slice();
 
 do{
-    coordinates_encrypted.splice(switch_a, 1, message[switch_b]);
-    coordinates_encrypted.splice(switch_b, 1, message[switch_a]);
+    coordinates_encrypted.splice(switch_a, 1, coordinates_message[switch_b]);
+    coordinates_encrypted.splice(switch_b, 1, coordinates_message[switch_a]);
     switch_a += 4;
     switch_b += 4;
-} while((coordinates_encrypted.indexOf(switch_b) + 2) < coordinates_encrypted.length);
-
+    // debugger;
+} while((switch_b + 5) < coordinates_encrypted.length);
+//---------DOES NOT ENCRYPT LAST TWO LETTERS, WHY????
 //####################
 // Step 6: find encrypted letters
 //####################
+var return_switch_a = 0;
+var return_switch_b = 1;
+var letters_encrypted = [];
 
-
-
+do{
+    letters_encrypted.push()
+    switch_a += 2;
+    switch_b += 3;
+    // debugger;
+} while(return_switch_b <= coordinates_encrypted.length);
+//-----------------TO-DO: diffferentiate between upper and lower square when encrypting
 //####################
 // Step 7: compile encrypted message by concatenating encrypted letters
 //####################
 
 };
 
-$(document).ready(function() {
-  $("form#factorialize").submit(function(event) {
-    var number = parseInt($("input#number").val());
 
-    var total = factorialize(number);
-    $(".factorial").text(total);
 
-    event.preventDefault();
-  });
-});
+// $(document).ready(function() {
+//   $("form#factorialize").submit(function(event) {
+//     var number = parseInt($("input#number").val());
+//
+//     var total = factorialize(number);
+//     $(".factorial").text(total);
+//
+//     event.preventDefault();
+//   });
+// });
